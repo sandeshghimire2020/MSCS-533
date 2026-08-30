@@ -85,14 +85,6 @@ cd unit_converter
 flutter test
 ```
 
-## Taking the screenshot for the report
-
-With the simulator focused, press **Cmd + S** to save a screenshot to the
-Desktop, or run:
-
-```bash
-xcrun simctl io booted screenshot ~/Desktop/converter.png
-```
 
 ## Notes
 
