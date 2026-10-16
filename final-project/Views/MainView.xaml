@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Main screen: a full-screen heat map of every saved location, with
+    Start/Stop and Clear actions in the title bar and a status line at the bottom.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:LocationTracker.Controls"
+             xmlns:vm="clr-namespace:LocationTracker.ViewModels"
+             x:Class="LocationTracker.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             Title="MainView">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding ToggleText}"
+                     Command="{Binding ToggleTrackingCommand}" />
+        <ToolbarItem Text="Clear"
+                     Clicked="OnClearClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <!-- The custom map control that draws the heat map from Points.
+             The blue "you are here" dot is only shown while tracking,
+             because it needs location permission. -->
+        <controls:HeatMap x:Name="HeatMapView"
+                          Points="{Binding Points}"
+                          CellSizeMeters="20"
+                          IsShowingUser="{Binding IsTracking}"
+                          MapType="Street" />
+
+        <!-- Status pill floating over the bottom of the map -->
+        <Border VerticalOptions="End"
+                HorizontalOptions="Center"
+                Margin="16,0,16,32"
+                Padding="16,8"
+                BackgroundColor="#E6FFFFFF"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 18">
+            <Label Text="{Binding Status}"
+                   TextColor="#1F1F1F"
+                   FontSize="13"
+                   HorizontalTextAlignment="Center" />
+        </Border>
+    </Grid>
+
+</ContentPage>

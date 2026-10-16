@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+		<!-- Google Maps needs an API key on Android. Create one at
+		     https://console.cloud.google.com (enable "Maps SDK for Android")
+		     and paste it here. Without it the map area stays blank. -->
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_API_KEY" />
+	</application>
+
+	<!-- Map tiles are downloaded over the network. -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+
+	<!-- GPS location while the app is open. -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-feature android:name="android.hardware.location" android:required="false" />
+	<uses-feature android:name="android.hardware.location.gps" android:required="false" />
+	<uses-feature android:name="android.hardware.location.network" android:required="false" />
+</manifest>
